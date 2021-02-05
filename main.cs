@@ -7,7 +7,7 @@ class MainClass {
     int z = 0;
     int Time = 0;
     int Stop = 0;
-    int Health = 100000;
+    int Health = 10;
     bool Sword = true;
     bool Goblin = true;
     int GoblinHealth = 1;
@@ -387,7 +387,7 @@ class MainClass {
     }
     else if(x == 2 && y == 0){
       if(Elf == true){
-        Console.WriteLine("An elf bocks your path");
+        Console.WriteLine("An Elf bocks your path");
       }
       else{
         Console.WriteLine("The cave your in apears to be the home of a Stone Elf, there is a chest here the cave continues south(w,s)");
