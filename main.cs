@@ -327,7 +327,7 @@ class MainClass {
       }
       Console.WriteLine(x);
       Console.WriteLine(y);
-      Console.WriteLine(z);
+      //Console.WriteLine(z);
       CmdLine = "null";
   }
   }
@@ -343,8 +343,14 @@ class MainClass {
     Console.WriteLine("Type 's' to go South");
     Console.WriteLine("Type 'e' to go East");
     Console.WriteLine("Type 'w' to go West");
-    Console.WriteLine("Type 'u' to go Up");
-    Console.WriteLine("Tyoe 'd' to go Down");
+    //Console.WriteLine("Type 'u' to go Up");
+    //Console.WriteLine("Tyoe 'd' to go Down");
+    Console.WriteLine("");
+    Console.WriteLine("");
+    Console.WriteLine("");
+    Console.WriteLine("Attacking");
+    Console.WriteLine("Use 'Attack' And then the name of the thing you want to attack");
+    Console.WriteLine("");
     Console.WriteLine("Type 'Wait' to wait (duh)");
     Console.WriteLine("Type 'Stop' to stop the program");
   }
@@ -354,10 +360,10 @@ class MainClass {
       Console.WriteLine("There is a tall and sturdy oak tree here it almost looks climbable, there are paths going to the North, East, And West (n,e,w)");
     }
     else if(x == 0 && y == 1){
-      Console.WriteLine("A wide open field stretchs out infront of you with a path going east, west, and south, there is a sign here (e,w,s)");
+      Console.WriteLine("A wide open field stretches out in front of you with a path going east, west, and south, there is a sign here (e,w,s)");
     }
     else if(x == 1 && y == 1){
-      Console.WriteLine("The path your on continues North, there is a large wooden chest here (w,n)");
+      Console.WriteLine("The path you're on continues North, there is a large wooden chest here (w,n)");
     }
     else if(x == 1 && y == 2){
       if(Goblin == true){
