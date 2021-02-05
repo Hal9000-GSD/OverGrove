@@ -12,10 +12,10 @@ class MainClass {
     bool Goblin = true;
     int GoblinHealth = 1;
     int GoblinRnd;
-    bool Elf = false;
+    bool Elf = true;
     int ElfHealth = 2;
     int ElfRnd;
-    bool HGoblin = false;
+    bool HGoblin = true;
     int HGoblinHealth = 3;
     int HGoblinRnd;
     bool Dragon = true;
