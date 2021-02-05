@@ -32,11 +32,12 @@ class MainClass {
           Console.WriteLine("You cant go that way");
           y--;
         }
-        else{
-          North();
         }
         if(x == 1 && y == 2 && Goblin == true){
         Look(x, y, Goblin, Elf,HGoblin, Dragon);
+        }
+        else{
+          North();
         }
       }
       else if(CmdLine == "s"){ // Goes South
@@ -45,15 +46,19 @@ class MainClass {
           Console.WriteLine("You cant go that way");
           y++;
         }
+        if(x == 1 && y ==1 && Goblin == true){
+          y++;
+          Look(x, y, Goblin, Elf, HGoblin, Dragon);
+        }
+        else if(x == 2 && y == 0 && Goblin == true){
+        Look(x, y, Goblin, Elf,HGoblin, Dragon);
+        }
+        else if(x == 2 && y == -1 && Goblin == true){
+          y++;
+        Look(x, y, Goblin, Elf,HGoblin, Dragon);
+        }
         else{
           South();
-        }
-        if(x == 1 && y == 2 && Goblin == true){
-          Look(x, y, Goblin, Elf,HGoblin, Dragon);
-        }
-        if(x == 1 && y ==1 && Goblin == true){
-          Look(x, y, Goblin, Elf, HGoblin, Dragon);
-          y++;
         }
       }
       else if(CmdLine == "e"){ // Goes East
@@ -62,14 +67,14 @@ class MainClass {
           Console.WriteLine("You cant go that way");
           x--;
         }
+        if(x == 1 && y == 2 && Goblin == true){
+          Look(x, y, Goblin, Elf,HGoblin, Dragon);
+        }
+        else if(x == 2 && y == 0 && Elf == true){
+          Look(x, y, Goblin, Elf,HGoblin, Dragon);
+        }
         else{
           East();
-        }
-        if(x == 1 && y == 2 && Goblin == true){
-        Look(x, y, Goblin, Elf,HGoblin, Dragon);
-        }
-        if(x == 2 && y == 0 && Elf == true){
-        Look(x, y, Goblin, Elf,HGoblin, Dragon);
         }
       }
       else if(CmdLine == "w"){ // Goes West
@@ -78,68 +83,16 @@ class MainClass {
           Console.WriteLine("You cant go that way");
           x++;
         }
-        else{
-          West();
-        }
-        if(x == 1 && y == 2 && Goblin == true){
-          Look(x, y, Goblin, Elf,HGoblin, Dragon);
-        }
-        if(x == 1 && y ==1 && Goblin == true){
+        if(x == 0 && y ==2 && Goblin == true){
+          x++;
           Look(x, y, Goblin, Elf, HGoblin, Dragon);
+        }
+        else if(x == 1 && y == 0 && Elf == true){
           x++;
-        }
-      }
-      else if(CmdLine == "N"){ // Goes North
-        y++;
-        if(x == 0 && y == 2 || x == 1 && y == 1 || x == -1 && y == 2|| x == 1 && y ==3 || x == 0 && y == 3 || x == 2 && y ==1 || x == 1 && y == 0){
-          Console.WriteLine("You cant go that way");
-          y--;
-        }
-        else{
-          North();
-        }
-        if(x == 1 && y == 2 && Goblin == true){
-        Look(x, y, Goblin, Elf, HGoblin, Dragon);
-        }
-      }
-      else if(CmdLine == "S"){ // Goes South
-        South();
-        y--;
-        if(x == 0 && y == 1 || x == 1 && y == 0 || x == 1 && y == -1 || x == -1 && y == -1 || x == 0 && y == -2 || x == 1 && y == -2 || x == 2 && y == -2){
-          Console.WriteLine("You cant go that way");
-          y++;
-        }
-        else{
-          South();
-        }
-        if(x == 1 && y == 2 && Goblin == true){
-        Look(x, y, Goblin, Elf, HGoblin, Dragon);
-        }
-      }
-      else if(CmdLine == "E"){ // Goes East
-        x++;
-        if(x == 2 && y == 2 || x == 2 && y == 1 || x == 3 && y == 0 || x == 3 && y == -1){
-          Console.WriteLine("You cant go that way");
-          x--;
-        }
-        else{
-          East();
-        }
-        if(x == 1 && y == 2 && Goblin == true){
-        Look(x, y, Goblin, Elf, HGoblin, Dragon);
-        }
-      }
-      else if(CmdLine == "W"){ // Goes West
-        x--;
-        if(x == -1 && y == 2 || x == -2 && y == 1 || x == -2 && y == 0 || x == -1 && y == -1){
-          Console.WriteLine("You cant go that way");
-          x++;
+          Look(x, y, Goblin, Elf, HGoblin, Dragon);
         }
         else{
           West();
-        }
-        if(x == 1 && y == 2 && Goblin == true){
-        Look(x, y, Goblin, Elf, HGoblin, Dragon);
         }
       }
       else if(CmdLine == "Attack Goblin"){
@@ -300,16 +253,6 @@ class MainClass {
         Wait();
         Time++;
       }
-      else if(CmdLine == "help"){ // Help command
-        Help();
-      }
-      else if(CmdLine == "look"){ // Look command
-        Look(x, y, Goblin, Elf, HGoblin, Dragon);
-      }
-      else if(CmdLine == "wait") { // Wait command
-        Wait();
-        Time++;
-      }
       else if(CmdLine == "Stop"){ // Stops The Game
         Stop++;
       }
@@ -329,7 +272,7 @@ class MainClass {
       Console.WriteLine(y);
       //Console.WriteLine(z);
       CmdLine = "null";
-  }
+    }
   }
 
   
