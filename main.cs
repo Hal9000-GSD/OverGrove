@@ -7,18 +7,20 @@ class MainClass {
     int z = 0;
     int Time = 0;
     int Stop = 0;
-    int Health = 10;
+    int Health = 100000;
     bool Sword = true;
     bool Goblin = true;
     int GoblinHealth = 1;
     int GoblinRnd;
-    bool Elf = true;
+    bool Elf = false;
     int ElfHealth = 2;
     int ElfRnd;
-    bool HGoblin = true;
+    bool HGoblin = false;
     int HGoblinHealth = 3;
     int HGoblinRnd;
     bool Dragon = true;
+    int DragonHealth = 5;
+    int DragonRnd;
     string CmdLine = "null";
     Console.WriteLine("OverGrove: Ian Miller 2021");
     Console.WriteLine("You wake up under an oak tree \n(Type 'Help' For Help)");
@@ -215,8 +217,8 @@ class MainClass {
         if(Sword == true){
           if(HGoblin == true && x == 2 && y == -1){
             Random rnd = new Random();
-            HGoblinRnd = rnd.Next(1,7);
-            if(HGoblinRnd == 4 || HGoblinRnd == 5 || HGoblinRnd == 6){
+            HGoblinRnd = rnd.Next(1,6);
+            if(HGoblinRnd == 4 || HGoblinRnd == 5){
               HGoblinHealth--;
               if(HGoblinHealth == 0){
                 Console.WriteLine("You killed the hobgoblin");
@@ -237,11 +239,49 @@ class MainClass {
               }
             }
           }
-
+          
           else{
             Console.WriteLine("There is no hobgoblin");
           }
-          
+        }
+        else{
+          Console.WriteLine("You Dont have a weapon to attack with");
+          }
+          if(HGoblinHealth == 0){
+          HGoblin = false;
+          }
+      }
+      else if(CmdLine == "Attack Dragon"){
+        if(Sword == true){
+          if(Dragon == true && x == 1 && y == -1){
+            Random rnd = new Random();
+            DragonRnd = rnd.Next(1,11);
+            if(DragonRnd == 3 || DragonRnd == 4 || DragonRnd == 5 || DragonRnd == 6){
+              DragonHealth--;
+              if(DragonHealth == 0){
+                Console.WriteLine("You killed the Dragon");
+              }
+              else{
+                Console.WriteLine("You hit the Dragon(" + DragonHealth + "/3)");
+              }
+            }
+            else{
+              if(DragonRnd == 7 || DragonRnd == 8 || DragonRnd == 9 || DragonRnd == 10){
+                Console.WriteLine("Your Sword Misses by a mile And the dragon swings its spiky tail at you");
+                Health--;
+                Health--;
+                Health--;
+                Health--;
+                Console.WriteLine("You Take Damage (" + Health + "/10)");
+              }
+              else if(DragonRnd == 1 || DragonRnd == 2){
+                Console.WriteLine("Your sword barely misses the Your Sword barely misses the dragon");
+              }
+            }
+          }
+           else{
+            Console.WriteLine("There is no dragon");
+          }
         }
         else{
           Console.WriteLine("You Dont have a weapon to attack with");
