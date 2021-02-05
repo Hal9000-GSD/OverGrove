@@ -169,8 +169,43 @@ class MainClass {
         }
         
       }
-        
-        
+      else if(CmdLine == "Attack Elf"){
+        if(Sword == true){
+          if(Elf == true && x == 2 && y == 0){
+            Random rnd = new Random();
+            ElfRnd = rnd.Next(1,6);
+            if(ElfRnd == 4 || ElfRnd == 5){
+              ElfHealth--;
+              if(ElfHealth == 0){
+                Console.WriteLine("You kill the elf");
+              }
+              else{
+                Console.WriteLine("You hit the Elf");
+              }
+            }
+            else{
+              if(ElfRnd == 2 || ElfRnd == 3){
+                Console.WriteLine("Your Sword Misses by a mile And the Elf Swings its Dagger at you");
+                Health--;
+                Console.WriteLine("You Take Damage (" + Health + "/10)");
+              }
+              else if(ElfRnd == 1){
+                Console.WriteLine("Your sword barely misses the elf");
+              }
+            }
+          }
+          else{
+            Console.WriteLine("There is no elf");
+          }
+          
+        }
+        else{
+          Console.WriteLine("You Dont have a weapon to attack with");
+          }
+          if(ElfHealth == 0){
+          Elf = false;
+          }
+      }
       else if(CmdLine == "Help"){ // Help command
         Help();
       }
