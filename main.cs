@@ -16,6 +16,8 @@ class MainClass {
     int ElfHealth = 2;
     int ElfRnd;
     bool HGoblin = true;
+    int HGoblinHealth = 3;
+    int HGoblinRnd;
     bool Dragon = true;
     string CmdLine = "null";
     Console.WriteLine("OverGrove: Ian Miller 2021");
@@ -62,6 +64,9 @@ class MainClass {
           East();
         }
         if(x == 1 && y == 2 && Goblin == true){
+        Look(x, y, Goblin, Elf,HGoblin, Dragon);
+        }
+        if(x == 2 && y == 0 && Elf == true){
         Look(x, y, Goblin, Elf,HGoblin, Dragon);
         }
       }
@@ -177,10 +182,10 @@ class MainClass {
             if(ElfRnd == 4 || ElfRnd == 5){
               ElfHealth--;
               if(ElfHealth == 0){
-                Console.WriteLine("You kill the elf");
+                Console.WriteLine("You killed the elf");
               }
               else{
-                Console.WriteLine("You hit the Elf");
+                Console.WriteLine("You hit the Elf(" + ElfHealth + "/2)");
               }
             }
             else{
@@ -204,6 +209,45 @@ class MainClass {
           }
           if(ElfHealth == 0){
           Elf = false;
+          }
+      }
+        else if(CmdLine == "Attack HobGoblin"){
+        if(Sword == true){
+          if(HGoblin == true && x == 2 && y == -1){
+            Random rnd = new Random();
+            HGoblinRnd = rnd.Next(1,7);
+            if(HGoblinRnd == 4 || HGoblinRnd == 5 || HGoblinRnd == 6){
+              HGoblinHealth--;
+              if(HGoblinHealth == 0){
+                Console.WriteLine("You killed the hobgoblin");
+              }
+              else{
+                Console.WriteLine("You hit the HobGoblin(" + HGoblinHealth + "/3)");
+              }
+            }
+            else{
+              if(HGoblinRnd == 2 || HGoblinRnd == 3){
+                Console.WriteLine("Your Sword Misses by a mile And the hobgoblin Swings its Club at you");
+                Health--;
+                Health--;
+                Console.WriteLine("You Take Damage (" + Health + "/10)");
+              }
+              else if(HGoblinRnd == 1){
+                Console.WriteLine("Your sword barely misses the hobgoblin");
+              }
+            }
+          }
+
+          else{
+            Console.WriteLine("There is no hobgoblin");
+          }
+          
+        }
+        else{
+          Console.WriteLine("You Dont have a weapon to attack with");
+          }
+          if(HGoblinHealth == 0){
+          HGoblin = false;
           }
       }
       else if(CmdLine == "Help"){ // Help command
